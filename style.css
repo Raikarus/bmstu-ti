@@ -24,6 +24,10 @@ container {
 	flex-direction: column;
 }
 
+header container {
+	flex-direction: row;
+}
+
 #main_logo {
 	background-image: url("img/main-logo.svg");
 	background-position: center;
@@ -225,6 +229,11 @@ section {
 	align-items: center;
 }
 
+#mailphone a:hover{
+	text-decoration: underline;
+	color: #00a494;
+}
+
 #socials {
 	width: 330px;
 	height: 50px;
@@ -241,6 +250,11 @@ section {
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 50px;
+}
+
+#socials div:hover {
+	outline: 1px solid white;
+	background-color: #00a494;
 }
 
 footer {
