@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="сайт портфолио для мф мгту">
@@ -7,114 +8,123 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 	<!-- <link rel="stylesheet" type="text/css" href="outline.css"> -->
+	 <link rel="stylesheet" type="text/css" href="normilize.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+		rel="stylesheet">
 	<title>Портфолио</title>
 </head>
+
 <body>
 	<header>
 		<div class="container">
-		<div id="main_logo"></div>
-		<nav>
-			<div>
+			<div class="main_logo"></div>
+			<nav>
 				<a href="#about">Обо мне</a>
-			</div>
-			<div>
 				<a href="#skills">Навыки</a>
-			</div>
-			<div>
 				<a href="#interests">Интересы</a>
-			</div>
-			<div>
-				<a href="#Contacts">Контакты</a>
-			</div>
-		</nav>
+				<a href="#contacts">Контакты</a>
+			</nav>
 		</div>
 	</header>
 	<main>
 		<div class="container">
-		<section id = "intro">
-			<div id="name">
-				<h1>Иван Тимофеев</h1>
-				<span>Программист</span>
-			</div>
-			<div id="user_photo"></div>
-		</section>
-		<section id="about">
-			<h2>Пара слов обо мне</h2>
-			<div>
-			<p>Привет ✌</p>
-			<p>В данный момент я учусь в магистратуре МФ МГТУ им. Н. Э. Баумана <br>
-по направлению «Информатика и вычисли­тельная техника».</p>
-			<p>В прошлом году защитил диплом бакалавра на тему «Разработка очень<br> сложного программного комплекса для супер-важной цели». Работа была высоко оценена комиссией.</p>
-			<p>Также я уже успел поработать экспертом в госучреждении,
-но в будущем планирую стать разработчиком сложных программных комплексов и систем.</p>
-			</div>
-		</section>
-		<section id="skills">
-			<div id="header">
-				<div><h2>Мои навыки</h2></div>
-				<div id="right">
-					<div>Сортировать</div>
-					<button>по названию</button>
-					<button>по уровню</button>
+			<section class="intro">
+				<div class="name">
+					<h1>Иван Тимофеев</h1>
+					<span>Программист</span>
 				</div>
-			</div>
-			<div>
-				<div class="assemble">
-					<img alt="1" src="img/Icon.svg" width="30" height="30">html
+				<img src="img/user-photo.JPG" alt="userPhoto" class="user_photo"></img>
+			</section>
+			<section id="about">
+				<h2>Пара слов обо мне</h2>
+				<div>
+					<p>Привет ✌</p>
+					<p>В данный момент я учусь в магистратуре МФ МГТУ им. Н. Э. Баумана <br>
+						по направлению «Информатика и вычисли­тельная техника».</p>
+					<p>В прошлом году защитил диплом бакалавра на тему «Разработка очень<br> сложного программного
+						комплекса для супер-важной цели». Работа была высоко оценена комиссией.</p>
+					<p>Также я уже успел поработать экспертом в госучреждении,
+						но в будущем планирую стать разработчиком сложных программных комплексов и систем.</p>
 				</div>
-				<div class="progress-bar">
-					<div class="progress-bar-inner" style="width: 90%;"></div>
+			</section>
+			<section id="skills">
+				<div class="header">
+					<div>
+						<h2>Мои навыки</h2>
+					</div>
+					<div class="right">
+						<div>Сортировать</div>
+						<button>по названию</button>
+						<button>по уровню</button>
+					</div>
 				</div>
-				<div class="assemble">
-					<img alt="1" src="img/Icon(1).svg" width="30" height="30">css
-				</div>
-				<div class="progress-bar">
-					<div class="progress-bar-inner" style="width: 80%;"></div>
-				</div>
-				<div class="assemble">
-					<img alt="1" src="img/Icon(2).svg" width="30" height="30">python
-				</div>
-				<div class="progress-bar">
-					<div class="progress-bar-inner" style="width: 85%;"></div>
-				</div>
-				<div class="assemble">
-					<img alt="1" src="img/Icon(3).svg" width="30" height="30">c++
-				</div>
-				<div class="progress-bar">
-					<div class="progress-bar-inner" style="width: 60%;"></div>
-				</div>
-			</div>
-		</section>
+				<dl class="skillList">
+					<dt class="IconSVG">HTML</dt>
+					<dd class="progressBar">
+						<div class="progressBarInner" style="width: 70%"></div>
+					</dd>
+					<dt class="IconSVG1">CSS</dt>
+					<dd class="progressBar">
+						<div class="progressBarInner" style="width: 30%"></div>
+					</dd>
+					<dt class="IconSVG2">Python</dt>
+					<dd class="progressBar">
+						<div class="progressBarInner" style="width: 30%"></div>
+					</dd>
+					<dt class="IconSVG3">C++</dt>
+					<dd class="progressBar">
+						<div class="progressBarInner" style="width: 5%"></div>
+					</dd>
+				</dl>
+			</section>
 
-		<section id="interests">
-			<h2>Мои интересы</h2>
-			<div>
-			<p>Наибольший интерес для меня в данный момент представляет программирование и изучение искусственного интеллекта.</p>
-			<p>Но помимо учёбы и работы я также люблю играть в настолки и читать.</p>
-			</div>
-		</section>
+			<section id="interests">
+				<h2>Мои интересы</h2>
+				<div>
+					<p>Наибольший интерес для меня в данный момент представляет программирование и изучение
+						искусственного интеллекта.</p>
+					<p>Но помимо учёбы и работы я также люблю играть в настолки и читать.</p>
+				</div>
+			</section>
 
-		<section id="Contacts">
-			<h2>Мои контакты</h2>
-			<div id="mailphone">
-				<a href="tel:+79991234567"><img alt="1" src="img/ContactsIcon.svg">+7 999 123-45-67</a>
-				<a href="mailto:email@mail.ru"><img alt="1" src="img/ContactsIcon(1).svg">email@mail.ru</a>
-			</div>
-			<div id="socials">
-				<a href="#"><div style="background-image: url('img/Vector.svg');"></div></a>
-				<a href="#"><div style="background-image: url('img/SocialIcon.svg');"></div></a>
-				<a href="#"><div style="background-image: url('img/SocialIcon\(1\).svg');"></div></a>
-				<a href="#"><div style="background-image: url('img/SocialIcon\(2\).svg');"></div></a>
-				<a href="#"><div style="background-image: url('img/SocialIcon\(3\).svg');"></div></a>
-			</div>
-		</section>
+			<section id="contacts">
+				<h2>Мои контакты</h2>
+				<div class="mailphone">
+					<a href="tel:+79991234567">
+						<div class="contactsIcon"></div>+7 999 123-45-67
+					</a>
+					<a href="mailto:email@mail.ru">
+						<div class="contactsIcon1"></div>email@mail.ru
+					</a>
+				</div>
+				<div class="socials">
+					<a href="#">
+						<div class="vector_image"></div>
+					</a>
+					<a href="#">
+						<div class="social_icon"></div>
+					</a>
+					<a href="#">
+						<div class="social_icon1"></div>
+					</a>
+					<a href="#">
+						<div class="social_icon2"></div>
+					</a>
+					<a href="#">
+						<div class="social_icon3"></div>
+					</a>
+				</div>
+			</section>
 		</div>
 	</main>
 	<footer>
 		<div class="container">
-		© 2025 Иван Тимофеев
+			© 2025 Иван Тимофеев
 		</div>
 	</footer>
 </body>
+
 </html>

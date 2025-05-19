@@ -1,7 +1,19 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --white: white;
+    --green: #09A494;
+    --txtColor: #212121;
+}
+
 body {
 	min-height: 100vh;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	color: #212121;
+	font-family: "Open Sans";
+	color: var(--txtColor);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,10 +24,11 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	line-height: 1.5;
 }
 
 button {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: "Open Sans";
 }
 
 .container {
@@ -28,10 +41,10 @@ header .container {
 	flex-direction: row;
 }
 
-#main_logo {
+.main_logo {
 	background-image: url("img/main-logo.svg");
 	background-position: center;
-	background-size:cover;
+	background-size: cover;
 	background-repeat: no-repeat;
 	width: 60px;
 	height: 60px;
@@ -53,22 +66,15 @@ nav {
 	width: 470px;
 }
 
-nav div {
-	height: 40px;
-	padding: 10px 15px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
-nav div a{
+nav a {
 	text-decoration: none;
-	color: #212121;
+	color: var(--txtColor);
 }
 
-nav div a:hover{
+nav a:hover {
 	text-decoration: underline;
-	color:#00a494;
+	color: var(--green);
 	transition: 0.2s;
 }
 
@@ -77,7 +83,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width:100%;
+	width: 100%;
 	height: auto;
 }
 
@@ -85,41 +91,39 @@ section {
 	margin: 45px 0;
 }
 
-#intro {
+.intro {
 	width: 100%;
-	height:400px;
-	
+	height: 400px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-#name {
+.name {
 	height: 132px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-#intro h1 {
+.intro h1 {
 	font-size: 60px;
 	padding: 0;
 	margin: 0;
+	line-height: 1.1;
 }
 
-#intro span {
+.intro span {
 	font-size: 38px;
-	color: #00a494;
+	color: .00a494;
+	line-height: 120%;
 }
 
-#user_photo {
+.user_photo {
 	width: 400px;
 	height: 400px;
-	background-image: url("img/user-photo.JPG");
-	background-size: cover;
-	background-position:50%;
-	background-repeat: no-repeat;
 	border-radius: 400px;
+	object-fit: cover;
 }
 
 #about {
@@ -135,26 +139,29 @@ section {
 	width: 100%;
 	height: 352px;
 	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
 }
 
-#skills #header {
+#skills .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 36px;
 }
 
-#skills #header #right {
+#skills .header .right {
 	display: flex;
 	justify-content: space-between;
 	width: 440px;
 	align-items: center;
 }
 
-#skills #header button {
-	background-color: white;
-	color: #00a494;
-	border: 1px solid #00a494;
+#skills .header button {
+	background-color: var(--white);
+	color: var(--green);
+	border: 1px solid var(--green);
 	border-radius: 5px;
 	outline: none;
 	padding: 5px 15px;
@@ -165,34 +172,47 @@ section {
 	cursor: pointer;
 }
 
-#skills #header button:hover {
-	background-color: #00a494;
-	color: white;
+#skills .header button:hover {
+	background-color: var(--green);
+	color: var(--white);
 	transition: 0.2s;
 }
 
-.progress-bar {
-	margin: 10px 0;
+.progressBar {
+    margin: 10px 0;
     width: 100%;
     height: 18px;
     background-color: #f3f3f3;
     position: relative;
-	border-radius: 100px;
-	outline: 1px solid #212121;
+    border-radius: 100px;
+    outline: 1px solid var(--txtColor);
 }
 
-.progress-bar-inner {
+.progressBarInner {
     height: 100%;
-    background-color: #00a494;
+    background-color: var(--green);
     position: absolute;
-	border-radius: 100px;  
+    border-radius: 100px;
 }
 
-.assemble {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	width: 30px;
+.skillList {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.skillList dt {
+    margin-bottom: 6px;
+    padding-left: 40px;
+    /* Место для иконки */
+    min-height: 30px;
+    /* Высота под иконку */
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
 }
 
 #interests {
@@ -203,35 +223,39 @@ section {
 	width: 800px;
 }
 
-#Contacts {
+#contacts {
 	width: 100%;
 }
 
-#Contacts a{
+#contacts a {
 	text-decoration: none;
-	color: #212121;
+	color: var(--txtColor);
 }
 
-#mailphone {
+.mailphone {
 	width: 420px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-#mailphone img {
+.mailphone div {
+	height: 30px;
+	width: 30px;
 	margin: 0 10px;
+	background-position: center;
+	background-size: cover;
 }
 
-#mailphone a{
+.mailphone a {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#mailphone a:hover{
+.mailphone a:hover {
 	text-decoration: underline;
-	color: #00a494;
+	color: var(--green);
 }
 
 #socials {
@@ -246,23 +270,67 @@ section {
 #socials div {
 	width: 50px;
 	height: 50px;
-	outline: 1px solid #00a494;
+	outline: 1px solid var(--green);
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 50px;
 }
 
 #socials div:hover {
-	outline: 1px solid white;
-	background-color: #00a494;
+	outline: 1px solid var(--white);
+	background-color: var(--green);
 }
 
 footer {
-	background-color: #212121;
+	background-color: var(--txtColor);
 	width: 100%;
 	height: 130px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
+	color: var(--white);
+}
+
+.vector_image {
+	background-image: url('img/Vector.svg');
+}
+
+.social_icon {
+	background-image: url('img/SocialIcon.svg');
+}
+
+.social_icon1 {
+	background-image: url('img/SocialIcon\(1\).svg');
+}
+
+.social_icon2 {
+	background-image: url('img/SocialIcon\(2\).svg');
+}
+
+.social_icon3 {
+	background-image: url('img/SocialIcon\(3\).svg');
+}
+
+.contactsIcon {
+	background-image: url('img/ContactsIcon.svg');
+}
+
+.contactsIcon1 {
+	background-image: url('img/ContactsIcon\(1\).svg');
+}
+
+.IconSVG {
+	background-image: url('img/Icon.svg');
+}
+
+.IconSVG1 {
+	background-image: url('img/Icon\(1\).svg');
+}
+
+.IconSVG2 {
+	background-image: url('img/Icon\(2\).svg');
+}
+
+.IconSVG3 {
+	background-image: url('img/Icon\(3\).svg');
 }
