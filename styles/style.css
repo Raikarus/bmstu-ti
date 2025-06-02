@@ -38,7 +38,7 @@ header .container {
 }
 
 .main_logo {
-	background-image: url("/img/main_logo.svg");
+	background-image: url("../img/main_logo.svg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -266,45 +266,45 @@ section {
 }
 
 .github_icon {
-	background-image: url('/img/github_icon.svg');
+	background-image: url('../img/github_icon.svg');
 }
 
 .gitlab_icon {
-	background-image: url('/img/gitlab_icon.svg');
+	background-image: url('../img/gitlab_icon.svg');
 }
 
 .zapret_icon {
-	background-image: url('/img/zapret_icon.svg');
+	background-image: url('../img/zapret_icon.svg');
 }
 
 .tg_icon {
-	background-image: url('/img/tg_icon.svg');
+	background-image: url('../img/tg_icon.svg');
 }
 
 .vk_icon {
-	background-image: url('/img/vk_icon.svg');
+	background-image: url('../img/vk_icon.svg');
 }
 
 .phone_icon {
-	background-image: url('/img/phone_icon.svg');
+	background-image: url('../img/phone_icon.svg');
 }
 
 .mail_icon {
-	background-image: url('/img/mail_icon.svg');
+	background-image: url('../img/mail_icon.svg');
 }
 
 .html_icon {
-	background-image: url('/img/html_icon.svg');
+	background-image: url('../img/html_icon.svg');
 }
 
 .css_icon {
-	background-image: url('/img/css_icon.svg');
+	background-image: url('../img/css_icon.svg');
 }
 
 .python_icon {
-	background-image: url('/img/python_icon.svg');
+	background-image: url('../img/python_icon.svg');
 }
 
 .cpp_icon {
-	background-image: url('/img/cpp_icon.svg');
+	background-image: url('../img/cpp_icon.svg');
 }
