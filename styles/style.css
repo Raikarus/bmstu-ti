@@ -12,7 +12,7 @@
 
 body {
 	min-height: 100vh;
-	font-family: "Open Sans";
+	font-family: "Open Sans", "Arial", sans-serif;
 	color: var(--txtColor);
 	display: flex;
 	justify-content: center;
@@ -20,10 +20,6 @@ body {
 	flex-direction: column;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 	line-height: 1.5;
 }
 
@@ -42,18 +38,17 @@ header .container {
 }
 
 .main_logo {
-	background-image: url("img/main-logo.svg");
+	background-image: url("/img/main_logo.svg");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	width: 60px;
 	height: 60px;
-	cursor: pointer;
 }
 
-header {
+.main_header {
 	width: 100%;
-	height: 120px;
+	padding-top: 60px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -63,17 +58,17 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 470px;
+	gap: 40px;
+	margin-left:40px;
 }
 
 
-nav a {
+a {
 	text-decoration: none;
 	color: var(--txtColor);
 }
 
-nav a:hover {
-	text-decoration: underline;
+a:hover {
 	color: var(--green);
 	transition: 0.2s;
 }
@@ -88,22 +83,21 @@ main {
 }
 
 section {
-	margin: 45px 0;
+	margin-top: 60px;
 }
 
 .intro {
 	width: 100%;
-	height: 400px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
 .name {
-	height: 132px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	gap: 20px;
 }
 
 .intro h1 {
@@ -115,7 +109,7 @@ section {
 
 .intro span {
 	font-size: 38px;
-	color: .00a494;
+	color: var(--green);
 	line-height: 120%;
 }
 
@@ -137,7 +131,6 @@ section {
 
 #skills {
 	width: 100%;
-	height: 352px;
 	font-size: 20px;
 	display: flex;
 	justify-content: space-between;
@@ -148,7 +141,6 @@ section {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 36px;
 }
 
 #skills .header .right {
@@ -178,7 +170,7 @@ section {
 	transition: 0.2s;
 }
 
-.progressBar {
+.progress_bar {
     margin: 10px 0;
     width: 100%;
     height: 18px;
@@ -188,20 +180,20 @@ section {
     outline: 1px solid var(--txtColor);
 }
 
-.progressBarInner {
+.progress_bar_inner {
     height: 100%;
     background-color: var(--green);
     position: absolute;
     border-radius: 100px;
 }
 
-.skillList {
+.skill_list {
     margin: 0;
     padding: 0;
     line-height: 1;
 }
 
-.skillList dt {
+.skill_list dt {
     margin-bottom: 6px;
     padding-left: 40px;
     /* Место для иконки */
@@ -223,114 +215,96 @@ section {
 	width: 800px;
 }
 
-#contacts {
-	width: 100%;
-}
-
-#contacts a {
-	text-decoration: none;
-	color: var(--txtColor);
-}
-
 .mailphone {
-	width: 420px;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.mailphone div {
-	height: 30px;
-	width: 30px;
-	margin: 0 10px;
-	background-position: center;
-	background-size: cover;
+	gap: 30px;
 }
 
 .mailphone a {
+	margin: 0 10px;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+	padding: 3px 0;
+	padding-left: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.mailphone a:hover {
-	text-decoration: underline;
-	color: var(--green);
-}
-
 #socials {
 	width: 330px;
-	height: 50px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 50px;
 }
 
-#socials div {
+#socials a {
 	width: 50px;
-	height: 50px;
+	padding: 25px;
 	outline: 1px solid var(--green);
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 50px;
 }
 
-#socials div:hover {
+#socials a:hover {
 	outline: 1px solid var(--white);
 	background-color: var(--green);
 }
 
-footer {
+.main_footer {
 	background-color: var(--txtColor);
 	width: 100%;
-	height: 130px;
+	padding: 50px 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: var(--white);
+	margin-top: 60px;
 }
 
-.vector_image {
-	background-image: url('img/Vector.svg');
+.github_icon {
+	background-image: url('/img/github_icon.svg');
 }
 
-.social_icon {
-	background-image: url('img/SocialIcon.svg');
+.gitlab_icon {
+	background-image: url('/img/gitlab_icon.svg');
 }
 
-.social_icon1 {
-	background-image: url('img/SocialIcon\(1\).svg');
+.zapret_icon {
+	background-image: url('/img/zapret_icon.svg');
 }
 
-.social_icon2 {
-	background-image: url('img/SocialIcon\(2\).svg');
+.tg_icon {
+	background-image: url('/img/tg_icon.svg');
 }
 
-.social_icon3 {
-	background-image: url('img/SocialIcon\(3\).svg');
+.vk_icon {
+	background-image: url('/img/vk_icon.svg');
 }
 
-.contactsIcon {
-	background-image: url('img/ContactsIcon.svg');
+.phone_icon {
+	background-image: url('/img/phone_icon.svg');
 }
 
-.contactsIcon1 {
-	background-image: url('img/ContactsIcon\(1\).svg');
+.mail_icon {
+	background-image: url('/img/mail_icon.svg');
 }
 
-.IconSVG {
-	background-image: url('img/Icon.svg');
+.html_icon {
+	background-image: url('/img/html_icon.svg');
 }
 
-.IconSVG1 {
-	background-image: url('img/Icon\(1\).svg');
+.css_icon {
+	background-image: url('/img/css_icon.svg');
 }
 
-.IconSVG2 {
-	background-image: url('img/Icon\(2\).svg');
+.python_icon {
+	background-image: url('/img/python_icon.svg');
 }
 
-.IconSVG3 {
-	background-image: url('img/Icon\(3\).svg');
+.cpp_icon {
+	background-image: url('/img/cpp_icon.svg');
 }
