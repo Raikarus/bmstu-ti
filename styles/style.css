@@ -21,6 +21,7 @@ body {
 	margin: 0;
 	padding: 0;
 	line-height: 1.5;
+	font-size: 20px;
 }
 
 button {
@@ -33,8 +34,9 @@ button {
 	flex-direction: column;
 }
 
-header .container {
+.main_header .container {
 	flex-direction: row;
+	gap: 40px;
 }
 
 .main_logo {
@@ -56,12 +58,13 @@ header .container {
 
 nav {
 	display: flex;
-	justify-content: space-around;
 	align-items: center;
-	gap: 40px;
-	margin-left:40px;
+	font-size: 20px;
 }
 
+nav a {
+	padding: 10px 15px;
+}
 
 a {
 	text-decoration: none;
@@ -83,7 +86,7 @@ main {
 }
 
 section {
-	margin-top: 60px;
+	margin-top: 120px;
 }
 
 .intro {
@@ -100,11 +103,19 @@ section {
 	gap: 20px;
 }
 
+h2 {
+	font-size: 30px;
+	padding: 0;
+	margin: 0;
+	line-height: 120%;
+}
+
 .intro h1 {
 	font-size: 60px;
 	padding: 0;
 	margin: 0;
 	line-height: 1.1;
+	font-weight: 700;
 }
 
 .intro span {
@@ -122,11 +133,20 @@ section {
 
 #about {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
 #about div {
-	width: 800px;
-	font-size: 20px;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+p {
+	margin: 0;
 }
 
 #skills {
@@ -135,6 +155,7 @@ section {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	gap: 20px;
 }
 
 #skills .header {
@@ -146,22 +167,23 @@ section {
 #skills .header .right {
 	display: flex;
 	justify-content: space-between;
-	width: 440px;
+	gap: 20px;
 	align-items: center;
 }
 
 #skills .header button {
 	background-color: var(--white);
 	color: var(--green);
-	border: 1px solid var(--green);
-	border-radius: 5px;
-	outline: none;
-	padding: 5px 15px;
+	outline: 1px solid var(--green);
+	border-radius: 8px;
+	border: none;
+	padding: 6px 10px 10px 10px;
 	font-size: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	line-height: 100%;
 }
 
 #skills .header button:hover {
@@ -171,7 +193,7 @@ section {
 }
 
 .progress_bar {
-    margin: 10px 0;
+    margin: 0;
     width: 100%;
     height: 18px;
     background-color: #f3f3f3;
@@ -205,42 +227,53 @@ section {
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 30px 30px;
+	margin-top: 20px;
 }
 
 #interests {
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
 #interests div {
-	width: 800px;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+#contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
 .mailphone {
 	display: flex;
-	gap: 30px;
+	gap: 40px;
+	line-height: 100%;
 }
 
 .mailphone a {
-	margin: 0 10px;
 	background-size: contain;
 	background-position: left;
 	background-repeat: no-repeat;
-	padding: 3px 0;
-	padding-left: 40px;
+	padding: 5px 0 5px 42px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-#socials {
-	width: 330px;
+.socials {
+	width: auto;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	margin-top: 50px;
+	gap: 20px;
 }
 
-#socials a {
+.socials a {
 	width: 50px;
 	padding: 25px;
 	outline: 1px solid var(--green);
@@ -249,7 +282,7 @@ section {
 	border-radius: 50px;
 }
 
-#socials a:hover {
+.socials a:hover {
 	outline: 1px solid var(--white);
 	background-color: var(--green);
 }
@@ -262,8 +295,22 @@ section {
 	justify-content: center;
 	align-items: center;
 	color: var(--white);
-	margin-top: 60px;
+	margin-top: 120px;
 }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 
 .github_icon {
 	background-image: url('../img/github_icon.svg');
