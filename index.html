@@ -3,12 +3,13 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="сайт портфолио для мф мгту">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 	<!-- <link rel="stylesheet" type="text/css" href="styles/outline.css"> -->
-	 <link rel="stylesheet" type="text/css" href="styles/normilize.css">
+	<link rel="stylesheet" type="text/css" href="styles/normilize.css">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,10 @@
 <body>
 	<header class="main_header">
 		<div class="container">
-			<div class="main_logo"></div>
+			<div class="main-header-wrap">
+				<div class="main_logo"></div>
+				<button class="nav-btn nav-btn_close"><span class="visually-hidden">Закрыть меню</span></button>
+			</div>
 			<nav>
 				<a href="#about">Обо мне</a>
 				<a href="#skills">Навыки</a>
@@ -32,11 +36,12 @@
 	<main>
 		<div class="container">
 			<section class="intro">
+				<img src="img/user-photo.JPG" alt="userPhoto" class="user_photo left_photo">
 				<div class="name">
 					<h1>Иван Тимофеев</h1>
 					<span>Программист</span>
 				</div>
-				<img src="img/user-photo.JPG" alt="userPhoto" class="user_photo">
+				<img src="img/user-photo.JPG" alt="userPhoto" class="user_photo right_photo">
 			</section>
 			<section id="about">
 				<h2>Пара слов обо мне</h2>
@@ -84,7 +89,8 @@
 				<div>
 					<p>Наибольший интерес для меня в данный момент представляет программирование и изучение
 						искусственного интеллекта.</p>
-					<p>Но помимо учёбы и работы я также люблю играть в настольные игры и читать различную литературу.</p>
+					<p>Но помимо учёбы и работы я также люблю играть в настольные игры и читать различную литературу.
+					</p>
 				</div>
 			</section>
 
