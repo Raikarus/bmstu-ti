@@ -213,6 +213,7 @@ p {
 	margin: 0;
 	padding: 0;
 	line-height: 1;
+	text-transform: lowercase;
 }
 
 .skill_list dt {
@@ -365,12 +366,14 @@ p {
 }
 
 @media screen and (max-width: 1024px) {
-	#skills {
-		gap: 40px;
-	}
 	#skills .header {
 		gap: 40px;
 	}
+
+	#skills dt {
+		/* margin: 0; */
+	}
+
 	h1 {
 		font-size: 50px;
 	}
@@ -386,7 +389,6 @@ p {
 	.user_photo {
 		width: 250px;
 		height: 250px;
-		;
 	}
 
 	.name span {
@@ -408,6 +410,15 @@ p {
 }
 
 @media screen and (max-width: 650px) {
+	.main_footer .container {
+		padding: 0;
+	}
+	.socials {
+		gap: 15px;
+	}
+	#interests {
+		gap: 30px;
+	}
 	h1 {
 		font-size: 32px;
 	}
@@ -431,6 +442,10 @@ p {
 	}
 
 	.main_header .container {
+		gap: 20px;
+	}
+
+	.main_header .container {
 		flex-direction: column;
 	}
 
@@ -441,6 +456,7 @@ p {
 	nav a {
 		padding: 20px 30px;
 		text-align: center;
+		line-height: 100%;
 	}
 
 	.nav-btn {
@@ -478,6 +494,11 @@ p {
 		display: block;
 	}
 
+	.name {
+		line-height: 110%;
+		gap: 10px;
+	}
+
 	.name span {
 		font-size: 20px;
 		text-align: center;
@@ -496,8 +517,9 @@ p {
 	}
 
 	#skills {
-		gap: 30px;
+		gap: 10px;
 	}
+
 	#skills .header {
 		gap: 30px;
 	}
@@ -513,8 +535,9 @@ p {
 	.mailphone a {
 		padding: 8px 0 8px 42px;
 	}
+
 	.main_footer {
-		paadding: 30px 20px;
+		padding: 30px 20px;
 	}
 }
 
@@ -522,6 +545,8 @@ p {
 
 	#skills .header {
 		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
 	}
 
 	#skills .header .right {
