@@ -32,7 +32,8 @@ button {
 }
 
 .container {
-	width: 1240px;
+	max-width: 1240px;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -272,6 +273,7 @@ p {
 	display: flex;
 	align-items: center;
 	gap: 20px;
+	flex-wrap: wrap;
 }
 
 .socials a {
@@ -363,6 +365,12 @@ p {
 
 .left_photo {
 	display: none;
+}
+
+@media screen and (max-width: 1280px) {
+	.container {
+		padding: 0 20px;
+	}
 }
 
 @media screen and (max-width: 1024px) {
@@ -534,10 +542,25 @@ p {
 
 	.mailphone a {
 		padding: 8px 0 8px 42px;
+		white-space: nowrap;
 	}
 
 	.main_footer {
 		padding: 30px 20px;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#skills .header {
+		flex-wrap: wrap;
+	}
+	.mailphone {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.mailphone a {
+		justify-content: flex-start;
 	}
 }
 
@@ -569,9 +592,5 @@ p {
 
 	.mailphone a {
 		justify-content: flex-start;
-	}
-
-	.socials {
-		flex-wrap: wrap;
 	}
 }
