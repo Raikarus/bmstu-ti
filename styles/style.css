@@ -343,22 +343,6 @@ p {
 	background-image: url('../img/mail_icon.svg');
 }
 
-.html_icon {
-	background-image: url('../img/html_icon.svg');
-}
-
-.css_icon {
-	background-image: url('../img/css_icon.svg');
-}
-
-.python_icon {
-	background-image: url('../img/python_icon.svg');
-}
-
-.cpp_icon {
-	background-image: url('../img/cpp_icon.svg');
-}
-
 .nav-btn {
 	display: none;
 }
