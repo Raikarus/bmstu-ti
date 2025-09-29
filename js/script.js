@@ -109,3 +109,5 @@ menuSwitcher.addEventListener('click', (e) => {
         menu.close();
     }
 });
+
+menu.close();
