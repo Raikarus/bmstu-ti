@@ -37,7 +37,7 @@ const skills = {
         }
         this.generateList(skillList);
     }
-}
+};
 
 const skillList = document.querySelector('.skill_list');
 skills.generateList(skillList);
@@ -84,3 +84,28 @@ function getComparer(prop) {
     }
 }
 
+const nav = document.querySelector('nav');
+const menuSwitcher = document.querySelector('.nav-btn');
+const menuSwitcherText = document.querySelector('.nav-btn .visually-hidden')
+const menu = {
+    close() {
+        nav.classList.add('nav_closed');
+        menuSwitcher.classList.remove('nav-btn_close');
+        menuSwitcher.classList.add('nav-btn_open');
+        menuSwitcherText.textContent = 'Открыть меню';
+    },
+    open() {
+        nav.classList.remove('nav_closed');
+        menuSwitcher.classList.remove('nav-btn_open');
+        menuSwitcher.classList.add('nav-btn_close');
+        menuSwitcherText.textContent = 'Закрыть меню';
+    }
+};
+
+menuSwitcher.addEventListener('click', (e) => {
+    if (e.target.classList.contains('nav-btn_open')) {
+        menu.open();
+    } else {
+        menu.close();
+    }
+});
