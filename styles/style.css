@@ -5,15 +5,24 @@
 }
 
 :root {
-	--white: white;
+	--bg-color: white;
 	--green: #09A494;
-	--txtColor: #212121;
+	--txt-color: #212121;
+}
+
+.dark_theme {
+	--txt-color: #CCCCCC;
+	--bg-color: #031923;
+}
+
+.dark_theme .socials a {
+	background-color: #CCCCCC;
 }
 
 body {
 	min-height: 100vh;
 	font-family: "Open Sans", "Arial", sans-serif;
-	color: var(--txtColor);
+	color: var(--txt-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -22,6 +31,7 @@ body {
 	padding: 0;
 	line-height: 1.5;
 	font-size: 20px;
+	background-color: var(--bg-color);
 }
 
 button {
@@ -71,7 +81,7 @@ nav a {
 
 a {
 	text-decoration: none;
-	color: var(--txtColor);
+	color: var(--txt-color);
 }
 
 a:hover {
@@ -174,7 +184,7 @@ p {
 }
 
 #skills .header button {
-	background-color: var(--white);
+	background-color: var(--bg-color);
 	color: var(--green);
 	outline: 1px solid var(--green);
 	border-radius: 8px;
@@ -189,7 +199,7 @@ p {
 
 #skills .header button:hover {
 	background-color: var(--green);
-	color: var(--white);
+	color: var(--bg-color);
 	transition: 0.2s;
 }
 
@@ -197,10 +207,10 @@ p {
 	margin: 0;
 	width: 100%;
 	height: 18px;
-	background-color: #f3f3f3;
+	background-color: var(--bg-color);
 	position: relative;
 	border-radius: 100px;
-	outline: 1px solid var(--txtColor);
+	outline: 1px solid var(--txt-color);
 }
 
 .progress_bar_inner {
@@ -287,18 +297,18 @@ p {
 }
 
 .socials a:hover {
-	outline: 1px solid var(--white);
+	outline: 1px solid var(--bg-color);
 	background-color: var(--green);
 }
 
 .main_footer {
-	background-color: var(--txtColor);
+	background-color: var(--txt-color);
 	width: 100%;
 	padding: 50px 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: var(--white);
+	color: var(--bg-color);
 	margin-top: 120px;
 }
 
@@ -340,8 +350,16 @@ p {
 	background-image: url('../img/phone_icon.svg');
 }
 
+.dark_theme .phone_icon {
+	background-image: url('../img/dark_theme/phone_icon.svg');
+}
+
 .mail_icon {
 	background-image: url('../img/mail_icon.svg');
+}
+
+.dark_theme .mail_icon {
+	background-image: url('../img/dark_theme/mail_icon.svg');
 }
 
 .nav-btn {
@@ -361,10 +379,6 @@ p {
 @media screen and (max-width: 1024px) {
 	#skills .header {
 		gap: 40px;
-	}
-
-	#skills dt {
-		/* margin: 0; */
 	}
 
 	h1 {
