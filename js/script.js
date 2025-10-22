@@ -30,7 +30,7 @@ const skills = {
             dd.append(div);
         });
     },
-    
+
     sortList(typeSort) {
         if (this.sortMode !== typeSort) {
             this.sortMode = typeSort
@@ -118,3 +118,33 @@ menuSwitcher.addEventListener('click', (e) => {
         menu.close();
     }
 });
+
+const theme_checkbox = document.querySelector('.switch_checkbox');
+const body = document.querySelector('body');
+
+function changeTheme() {
+    if (theme_checkbox.checked) {
+        body.classList.remove('dark_theme');
+        localStorage.setItem('theme', 'light');
+    }
+    else {
+        body.classList.add('dark_theme');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+theme_checkbox.addEventListener('change', changeTheme)
+
+function applyTheme() {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    theme_checkbox.checked = true;
+  } else {
+    theme_checkbox.checked = false;
+  }
+  changeTheme();
+}
+
+window.onload = () => {
+  applyTheme();
+};
