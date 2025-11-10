@@ -183,24 +183,32 @@ p {
 	align-items: center;
 }
 
-#skills .header button {
+#skills button{
 	background-color: var(--bg-color);
 	color: var(--green);
 	outline: 1px solid var(--green);
 	border-radius: 8px;
 	border: none;
 	padding: 6px 10px 10px 10px;
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	line-height: 100%;
+	margin-left: 10px;
 }
 
-#skills .header button:hover {
+#skills button:hover{
 	background-color: var(--green);
 	color: var(--bg-color);
 	transition: 0.2s;
+}
+
+
+
+#skills .header button:disabled {
+  opacity: 0.6; /* Makes the button appear faded */
+  cursor: not-allowed; /* Changes the cursor to indicate non-interactivity */
+  background-color: #ccc; /* Changes background color */
+  color: #666; /* Changes text color */
 }
 
 .progress_bar {
@@ -310,6 +318,10 @@ p {
 	align-items: center;
 	color: var(--bg-color);
 	margin-top: 120px;
+}
+
+.dark_theme .main_footer {
+	background-color: var(--green);
 }
 
 .visually-hidden {

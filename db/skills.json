@@ -1,0 +1,10 @@
+[
+    { "name": "html", "range": 70, "icon": "html_icon"
+    },
+    { "name": "css", "range": 30, "icon": "css_icon"
+    },
+    { "name": "python", "range": 30, "icon": "python_icon"
+    },
+    { "name": "c++", "range": 5, "icon": "cpp_icon"
+    }
+]

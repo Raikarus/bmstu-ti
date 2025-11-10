@@ -1,34 +1,55 @@
 "use strict";
 
 const skills = {
-    data: [
-        { name: 'html', range: 70, icon: 'html_icon' },
-        { name: 'css', range: 30, icon: 'css_icon' },
-        { name: 'python', range: 30, icon: 'python_icon' },
-        { name: 'c++', range: 5, icon: 'cpp_icon' }
-    ],
+    data: [],
 
+    errorMessage: "...ошибка получения данных...",
     sortMode: null,
 
-    generateList(parentElement) {
+    generateList(parentElement, path = undefined) {
         parentElement.innerHTML = '';
-        const skillList = parentElement;
-        this.data.forEach(element => {
-            const dt = document.createElement('dt');
-            const dd = document.createElement('dd');
-            const div = document.createElement('div');
+        if (this.data.length > 0) {
+            this.data.forEach(element => {
+                const dt = document.createElement('dt');
+                const dd = document.createElement('dd');
+                const div = document.createElement('div');
 
-            dt.style = `background-image: url('img/${element.icon}.svg')`;
-            dd.classList.add('progress_bar');
-            div.classList.add('progress_bar_inner')
+                dt.style = `background-image: url('img/${element.icon}.svg')`;
+                dd.classList.add('progress_bar');
+                div.classList.add('progress_bar_inner')
 
-            div.textContent = `${element.range}%`;
-            div.style = `width: ${element.range}%`;
-            dt.textContent = element.name;
+                div.textContent = `${element.range}%`;
+                div.style = `width: ${element.range}%`;
+                dt.textContent = element.name;
 
-            skillList.append(dt, dd);
-            dd.append(div);
-        });
+                parentElement.append(dt, dd);
+                dd.append(div);
+            });
+        }
+        else {
+            parentElement.textContent = this.errorMessage;
+
+            const buttonReGenerateList = document.createElement('button');
+            buttonReGenerateList.textContent = "Обновить";
+
+            buttonReGenerateList.addEventListener('click', () => {
+                this.setData(path).then(
+                    (path) => this.generateList(parentElement, path)
+                ).then(
+                    () => {
+                        if (parentElement.textContent == (this.errorMessage + 'Обновить')) {
+                            buttonsBlock.style.display = "None";
+                        }
+                        else {
+                            buttonsBlock.style.display = "flex";
+                        }
+                    }
+                );
+                console.log(`Попытка повторного получения ('${path}')... `);
+            });
+
+            parentElement.append(buttonReGenerateList);
+        }
     },
 
     sortList(typeSort) {
@@ -39,15 +60,32 @@ const skills = {
             this.data.reverse();
         }
         this.generateList(skillList);
+    },
+
+    async setData(path) {
+        await fetch(path)
+            .then(data => data.json())
+            .then(object => this.data = object) // тут был generateList(skillList), но мне показалось это сильной связанностью
+            .catch((err) => console.error(err));
+        return path;
     }
+
 };
 
 const skillList = document.querySelector('.skill_list');
-
-skills.generateList(skillList);
-
-
 const buttonsBlock = document.querySelector('.sort-block');
+
+skills.setData('db/skills.json')
+    .then(
+        (path) => skills.generateList(skillList, path))
+    .then(
+        () => {
+            if (skillList.textContent == (skills.errorMessage + 'Обновить')) {
+                buttonsBlock.style.display = "None";
+            }
+        }
+    );
+
 
 buttonsBlock.addEventListener('click', (e) => {
     const target = e.target
@@ -136,15 +174,15 @@ function changeTheme() {
 theme_checkbox.addEventListener('change', changeTheme)
 
 function applyTheme() {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
-    theme_checkbox.checked = true;
-  } else {
-    theme_checkbox.checked = false;
-  }
-  changeTheme();
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        theme_checkbox.checked = true;
+    } else {
+        theme_checkbox.checked = false;
+    }
+    changeTheme();
 }
 
 window.onload = () => {
-  applyTheme();
+    applyTheme();
 };
