@@ -4,102 +4,134 @@ const skills = {
     data: [],
 
     errorMessage: "...ошибка получения данных...",
+    errorCode: 0,
     sortMode: null,
+    parentElement: undefined,
 
-    generateList(parentElement, path = undefined) {
-        parentElement.innerHTML = '';
-        if (this.data.length > 0) {
-            this.data.forEach(element => {
-                const dt = document.createElement('dt');
-                const dd = document.createElement('dd');
-                const div = document.createElement('div');
-
-                dt.style = `background-image: url('img/${element.icon}.svg')`;
-                dd.classList.add('progress_bar');
-                div.classList.add('progress_bar_inner')
-
-                div.textContent = `${element.range}%`;
-                div.style = `width: ${element.range}%`;
-                dt.textContent = element.name;
-
-                parentElement.append(dt, dd);
-                dd.append(div);
-            });
-        }
-        else {
-            parentElement.textContent = this.errorMessage;
-
-            const buttonReGenerateList = document.createElement('button');
-            buttonReGenerateList.textContent = "Обновить";
-
-            buttonReGenerateList.addEventListener('click', () => {
-                this.setData(path).then(
-                    (path) => this.generateList(parentElement, path)
-                ).then(
-                    () => {
-                        if (parentElement.textContent == (this.errorMessage + 'Обновить')) {
-                            buttonsBlock.style.display = "None";
-                        }
-                        else {
-                            buttonsBlock.style.display = "flex";
-                        }
-                    }
-                );
-                console.log(`Попытка повторного получения ('${path}')... `);
-            });
-
-            parentElement.append(buttonReGenerateList);
-        }
+    setParentElement(parentElement) {
+        this.parentElement = parentElement;
     },
 
-    sortList(typeSort) {
+    async generateBlock() {
+        this.parentElement.innerHTML = '';
+        const header = document.createElement('div');
+        header.classList.add('header');
+        const h2 = document.createElement('h2');
+        h2.textContent = "Мои навыки";
+        header.append(h2);
+        this.parentElement.append(header);
+        await this.loadData().then(() => {
+            if (this.errorCode === 0) {
+                this.generateButtons();
+                this.generateList();
+            }
+            else {
+                const errorBlock = document.createElement('div');
+                errorBlock.textContent = this.errorMessage;
+
+                const buttonReGenerateList = document.createElement('button');
+                buttonReGenerateList.textContent = "Обновить";
+
+                buttonReGenerateList.addEventListener('click', () => {
+                    console.log(`Попытка повторного получения ('${this.path}')... `);
+                    this.generateBlock();
+                });
+                this.parentElement.append(errorBlock, buttonReGenerateList);
+            }
+        });
+    },
+
+    generateButtons() {
+        const header = this.parentElement.querySelector("div.header");
+        const sortBlock = document.createElement('div');
+        sortBlock.classList.add('sort-block');
+
+        const sortText = document.createElement('div');
+        sortText.textContent = "Сортировать";
+
+        const buttonName = document.createElement('button');
+        buttonName.textContent = 'по названию';
+        buttonName.setAttribute('data-type', 'name');
+
+        const buttonRange = document.createElement('button');
+        buttonRange.textContent = 'по уровню';
+        buttonRange.setAttribute('data-type', 'range');
+
+        sortBlock.addEventListener('click', (e) => {
+            const target = e.target
+            if (target.nodeName === "BUTTON") {
+                switch (target.dataset.type) {
+                    case 'name':
+                    case 'range':
+                        skills.sortData(target.dataset.type);
+                        break;
+                    default:
+                        console.log('неизвестная кнопка');
+                }
+            }
+        });
+        sortBlock.append(sortText, buttonName, buttonRange);
+        header.append(sortBlock);
+    },
+
+    generateList() {
+        const skillList = this.parentElement.querySelector('dl.skill_list') || document.createElement('dl');
+        skillList.innerHTML = '';
+        skillList.classList.add('skill_list');
+        this.data.forEach(element => {
+            const dt = document.createElement('dt');
+            const dd = document.createElement('dd');
+            const div = document.createElement('div');
+
+            dt.style = `background-image: url('img/${element.icon}.svg')`;
+            dd.classList.add('progress_bar');
+            div.classList.add('progress_bar_inner')
+
+            div.textContent = `${element.range}%`;
+            div.style = `width: ${element.range}%`;
+            dt.textContent = element.name;
+
+            skillList.append(dt, dd);
+            dd.append(div);
+        });
+        this.parentElement.append(skillList);
+    },
+
+    sortData(typeSort) {
         if (this.sortMode !== typeSort) {
             this.sortMode = typeSort
             this.data.sort(getComparer(typeSort));
         } else {
             this.data.reverse();
         }
-        this.generateList(skillList);
+        this.generateList();
     },
 
-    async setData(path) {
-        await fetch(path)
+    setPath(path) {
+        this.path = path;
+    },
+
+    async loadData() {
+        await fetch(this.path)
             .then(data => data.json())
-            .then(object => this.data = object) // тут был generateList(skillList), но мне показалось это сильной связанностью
-            .catch((err) => console.error(err));
-        return path;
+            .then(object => {
+                this.data = object;
+                this.errorCode = 0
+            })
+            .catch((err) => {
+                console.error(err);
+                this.errorCode = 1
+            });
     }
 
 };
 
-const skillList = document.querySelector('.skill_list');
-const buttonsBlock = document.querySelector('.sort-block');
+const skillBlock = document.querySelector('#skills');
 
-skills.setData('db/skills.json')
-    .then(
-        (path) => skills.generateList(skillList, path))
-    .then(
-        () => {
-            if (skillList.textContent == (skills.errorMessage + 'Обновить')) {
-                buttonsBlock.style.display = "None";
-            }
-        }
-    );
+skills.setPath('db/skills.json');
+skills.setParentElement(skillBlock);
+skills.generateBlock();
 
-
-buttonsBlock.addEventListener('click', (e) => {
-    const target = e.target
-    if (target.nodeName === "BUTTON") {
-        switch (target.dataset.type) {
-            case 'name':
-            case 'range':
-                skills.sortList(target.dataset.type);
-                break;
-            default:
-                console.log('неизвестная кнопка');
-        }
-    }
-});
 
 function compare(a, b) {
     if (a.name < b.name) {
