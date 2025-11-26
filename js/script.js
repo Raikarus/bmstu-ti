@@ -8,11 +8,12 @@ const skills = {
     sortMode: null,
     parentElement: undefined,
 
-    setParentElement(parentElement) {
+    init(parentElement, path) {
         this.parentElement = parentElement;
+        this.path = path;   
     },
 
-    async generateBlock() {
+    async renderBlock() {
         this.parentElement.innerHTML = '';
         const header = document.createElement('div');
         header.classList.add('header');
@@ -21,9 +22,9 @@ const skills = {
         header.append(h2);
         this.parentElement.append(header);
         await this.loadData().then(() => {
-            if (this.errorCode === 0) {
-                this.generateButtons();
-                this.generateList();
+            if (!this.errorCode) {
+                this.renderButtons();
+                this.renderList();
             }
             else {
                 const errorBlock = document.createElement('div');
@@ -34,14 +35,14 @@ const skills = {
 
                 buttonReGenerateList.addEventListener('click', () => {
                     console.log(`Попытка повторного получения ('${this.path}')... `);
-                    this.generateBlock();
+                    this.renderBlock();
                 });
                 this.parentElement.append(errorBlock, buttonReGenerateList);
             }
         });
     },
 
-    generateButtons() {
+    renderButtons() {
         const header = this.parentElement.querySelector("div.header");
         const sortBlock = document.createElement('div');
         sortBlock.classList.add('sort-block');
@@ -74,7 +75,7 @@ const skills = {
         header.append(sortBlock);
     },
 
-    generateList() {
+    renderList() {
         const skillList = this.parentElement.querySelector('dl.skill_list') || document.createElement('dl');
         skillList.innerHTML = '';
         skillList.classList.add('skill_list');
@@ -104,11 +105,7 @@ const skills = {
         } else {
             this.data.reverse();
         }
-        this.generateList();
-    },
-
-    setPath(path) {
-        this.path = path;
+        this.renderList();
     },
 
     async loadData() {
@@ -128,9 +125,8 @@ const skills = {
 
 const skillBlock = document.querySelector('#skills');
 
-skills.setPath('db/skills.json');
-skills.setParentElement(skillBlock);
-skills.generateBlock();
+skills.init(skillBlock, 'db/skills.json');
+skills.renderBlock();
 
 
 function compare(a, b) {
